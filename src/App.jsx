@@ -181,7 +181,12 @@ function Inner() {
           🎮 {lang === 'es'
             ? 'Modo Demo — Consigue tu código en '
             : 'Demo Mode — Get your code at '}
-          <span style={{ textDecoration: 'underline' }}>Etsy</span>
+          <a
+            href="https://burlystudio.etsy.com/listing/4501866534"
+            target="_blank"
+            rel="noopener noreferrer"
+            style={{ color: '#fff', textDecoration: 'underline' }}
+          >Etsy</a>
         </div>
       )}
 
