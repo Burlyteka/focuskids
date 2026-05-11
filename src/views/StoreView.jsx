@@ -74,7 +74,6 @@ export default function StoreView() {
         {/* ── Premio Especial del padre ── */}
         {customReward && (
           <div style={{
-            gridColumn: 'span 2',
             borderRadius: 20,
             background: customReward.active
               ? 'linear-gradient(135deg,#7C3AED,#EC4899)'
