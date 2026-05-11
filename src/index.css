@@ -493,7 +493,7 @@ body {
    ══════════════════════════════════════════════ */
 .routine-toggle {
   display: flex;
-  background: #EEF2FF;
+  background: var(--panel, #EEF2FF);
   border-radius: 999px;
   padding: 4px;
   margin-bottom: 16px;
@@ -520,7 +520,7 @@ body {
 
 .routine-progress-wrap { margin-bottom: 16px; }
 .routine-progress-bar-bg {
-  background: #E5E7EB;
+  background: var(--bar-bg, #E5E7EB);
   border-radius: 999px;
   height: 12px;
   overflow: hidden;
@@ -548,10 +548,10 @@ body {
   min-height: 64px;
 }
 .routine-item:active { transform: scale(.97); }
-.routine-item.done { background: #F0FDF4; border-color: #86EFAC; }
+.routine-item.done { background: var(--item-done-bg, #F0FDF4); border-color: #86EFAC; }
 .routine-item .ri-emoji { font-size: 28px; flex-shrink: 0; }
-.routine-item .ri-text { flex: 1; font-size: 17px; font-weight: 700; }
-.routine-item.done .ri-text { color: #166534; text-decoration: line-through; opacity: .7; }
+.routine-item .ri-text { flex: 1; font-size: 17px; font-weight: 700; color: var(--text); }
+.routine-item.done .ri-text { color: var(--item-done-text, #166534); text-decoration: line-through; opacity: .8; }
 
 .check-circle {
   width: 34px; height: 34px;
@@ -883,12 +883,12 @@ body {
   flex: 1;
   padding: 14px 16px;
   border-radius: var(--r-sm);
-  border: 2.5px solid #C7D2FE;
+  border: 2.5px solid var(--border-c, #C7D2FE);
   font-family: var(--font);
   font-size: 15px; font-weight: 700;
   color: var(--text);
   outline: none;
-  background: var(--card);
+  background: var(--input-bg, var(--card));
   transition: border-color .2s;
   min-height: 56px;
 }
@@ -1181,7 +1181,7 @@ body {
 
 /* Routine progress bar container */
 .routine-progress {
-  background: #E5E7EB; border-radius: 999px; height: 12px; overflow: hidden;
+  background: var(--bar-bg, #E5E7EB); border-radius: 999px; height: 12px; overflow: hidden;
 }
 
 /* Memory game stats */
@@ -1721,4 +1721,18 @@ body {
 @keyframes boltFlash {
   0%,100% { opacity: .2;  transform: scale(1)    rotate(-5deg); }
   50%     { opacity: .65; transform: scale(1.25)  rotate(5deg); }
+}
+
+/* Ocean fish swimming */
+@keyframes fishSwimLeft {
+  0%   { transform: translateX(-80px) scaleX(1); opacity: 0; }
+  5%   { opacity: .85; }
+  95%  { opacity: .85; }
+  100% { transform: translateX(480px) scaleX(1); opacity: 0; }
+}
+@keyframes fishSwimRight {
+  0%   { transform: translateX(480px) scaleX(-1); opacity: 0; }
+  5%   { opacity: .85; }
+  95%  { opacity: .85; }
+  100% { transform: translateX(-80px) scaleX(-1); opacity: 0; }
 }

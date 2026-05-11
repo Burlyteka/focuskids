@@ -122,6 +122,12 @@ function Inner() {
     '--text':     theme.dark ? '#EEF2FF'                : '#1E1B4B',
     '--soft':     theme.dark ? 'rgba(238,242,255,.65)'  : '#374151',
     '--purple':   theme.dark ? '#A78BFA'                : '#7C3AED',
+    '--panel':    theme.dark ? 'rgba(255,255,255,.12)'  : 'rgba(0,0,0,.08)',
+    '--bar-bg':   theme.dark ? 'rgba(255,255,255,.15)'  : '#E5E7EB',
+    '--item-done-bg':    theme.dark ? 'rgba(134,239,172,.15)' : '#F0FDF4',
+    '--item-done-text':  theme.dark ? '#86EFAC'               : '#166534',
+    '--input-bg': theme.dark ? 'rgba(255,255,255,.1)'   : '#fff',
+    '--border-c': theme.dark ? 'rgba(255,255,255,.2)'   : '#C7D2FE',
   }
 
   return (
