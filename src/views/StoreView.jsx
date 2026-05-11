@@ -73,60 +73,34 @@ export default function StoreView() {
 
         {/* ── Premio Especial del padre ── */}
         {customReward && (
-          <div style={{
-            borderRadius: 20,
-            background: customReward.active
-              ? 'linear-gradient(135deg,#7C3AED,#EC4899)'
-              : 'linear-gradient(135deg,#9CA3AF,#6B7280)',
-            padding: '20px 16px 16px',
-            display: 'flex', flexDirection: 'column', alignItems: 'center', gap: 6,
-            position: 'relative',
-            boxShadow: customReward.active ? '0 8px 28px rgba(124,58,237,.4)' : 'none',
-          }}>
-            <div style={{ fontSize: 11, fontWeight: 900, letterSpacing: 1.5,
-              color: 'rgba(255,255,255,.75)', textTransform: 'uppercase', marginBottom: 2 }}>
-              {lang === 'es' ? '🏆 Premio Especial' : '🏆 Special Prize'}
+          <div
+            className="store-card"
+            style={{
+              background: customReward.active
+                ? 'linear-gradient(135deg,#7C3AED,#EC4899)'
+                : 'linear-gradient(135deg,#9CA3AF,#6B7280)',
+              boxShadow: customReward.active ? '0 8px 28px rgba(124,58,237,.4)' : 'none',
+            }}
+          >
+            <div className="sc-emoji">{customReward.emoji || '🎁'}</div>
+            <div className="sc-name">{customReward.name}</div>
+
+            <div className={`sc-badge ${!customReward.active ? 'sc-badge-owned' : ''}`}>
+              {customReward.active
+                ? `${customReward.stars} ⭐`
+                : (lang === 'es' ? '✅ Canjeado' : '✅ Redeemed')}
             </div>
-            <div style={{ fontSize: 40 }}>{customReward.emoji || '🎁'}</div>
-            <div style={{ fontSize: 15, fontWeight: 900, color: '#fff', textAlign: 'center' }}>
-              {customReward.name}
-            </div>
-            {customReward.active ? (
-              <>
-                <div style={{ fontSize: 13, fontWeight: 800,
-                  background: 'rgba(255,255,255,.2)', borderRadius: 999,
-                  padding: '4px 14px', color: '#fff', marginTop: 2 }}>
-                  {customReward.stars} ⭐
-                </div>
-                {stars >= customReward.stars ? (
-                  <button
-                    onClick={redeemReward}
-                    disabled={redeeming}
-                    style={{
-                      marginTop: 8, width: '100%', padding: '12px',
-                      background: 'rgba(255,255,255,.95)', borderRadius: 12, border: 'none',
-                      fontFamily: 'var(--font)', fontWeight: 900, fontSize: 14,
-                      color: '#7C3AED', cursor: 'pointer',
-                    }}
-                  >
-                    {redeeming ? '...' : (lang === 'es' ? '✨ ¡Canjear!' : '✨ Redeem!')}
-                  </button>
-                ) : (
-                  <div style={{ marginTop: 8, width: '100%', padding: '10px',
-                    background: 'rgba(0,0,0,.25)', borderRadius: 12,
-                    textAlign: 'center', fontSize: 12, fontWeight: 800, color: 'rgba(255,255,255,.7)' }}>
-                    🔒 {lang === 'es'
-                      ? `Te faltan ${customReward.stars - stars} ⭐`
-                      : `You need ${customReward.stars - stars} more ⭐`}
-                  </div>
-                )}
-              </>
-            ) : (
-              <div style={{ marginTop: 4, fontSize: 13, fontWeight: 800,
-                background: 'rgba(255,255,255,.2)', borderRadius: 999,
-                padding: '6px 16px', color: '#fff' }}>
-                {lang === 'es' ? '✅ ¡Canjeado!' : '✅ Redeemed!'}
-              </div>
+
+            {customReward.active && (
+              stars >= customReward.stars ? (
+                <button className="sc-btn sc-btn-buy" onClick={redeemReward} disabled={redeeming}>
+                  {redeeming ? '...' : (lang === 'es' ? '✨ Canjear' : '✨ Redeem')}
+                </button>
+              ) : (
+                <button className="sc-btn sc-btn-locked" disabled>
+                  🔒 {customReward.stars - stars} ⭐
+                </button>
+              )
             )}
           </div>
         )}
