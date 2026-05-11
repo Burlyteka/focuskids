@@ -107,29 +107,48 @@ export default function HomeView() {
             {tr.hi} <span style={{ color: 'var(--purple)' }}>{name}</span>
             {name ? '!' : ''}
           </p>
-          <div style={{ display: 'flex', alignItems: 'center', gap: 10, marginTop: 2, flexWrap: 'wrap' }}>
+          <div style={{ display: 'flex', alignItems: 'center', gap: 10, marginTop: 4, flexWrap: 'wrap' }}>
             {stars > 0 && (
-              <p style={{ fontSize: 15, fontWeight: 700, color: 'var(--soft)', margin: 0 }}>
-                ⭐ {stars} {tr.starsLabel}
-                {stars >= 30 && <span style={{ marginLeft: 8 }}>{tr.badge30}</span>}
-                {stars >= 10 && stars < 30 && <span style={{ marginLeft: 8 }}>{tr.badge10}</span>}
-              </p>
+              <div style={{
+                display: 'flex', alignItems: 'center', gap: 5,
+                background: 'linear-gradient(135deg,#FEF3C7,#FDE68A)',
+                borderRadius: 999, padding: '5px 12px',
+                boxShadow: '0 2px 8px rgba(245,158,11,.3)',
+              }}>
+                <span style={{ fontSize: 16 }}>⭐</span>
+                <span style={{ fontSize: 15, fontWeight: 900, color: '#92400E' }}>
+                  {stars}
+                </span>
+                {stars >= 30 && <span style={{ fontSize: 13 }}>{tr.badge30}</span>}
+                {stars >= 10 && stars < 30 && <span style={{ fontSize: 13 }}>{tr.badge10}</span>}
+              </div>
             )}
             {streak.count > 0 && (
               <div style={{
                 display: 'flex', alignItems: 'center', gap: 4,
-                background: streak.count >= 7 ? 'linear-gradient(135deg,#F97316,#EF4444)'
-                          : streak.count >= 3 ? 'linear-gradient(135deg,#F59E0B,#F97316)'
-                          : 'linear-gradient(135deg,#FEF3C7,#FDE68A)',
-                borderRadius: 999, padding: '3px 10px',
+                background: streak.count >= 7
+                  ? 'linear-gradient(135deg,#FF4500,#FF8C00)'
+                  : streak.count >= 3
+                  ? 'linear-gradient(135deg,#F97316,#EF4444)'
+                  : 'linear-gradient(135deg,#FB923C,#F97316)',
+                borderRadius: 999, padding: '5px 14px',
+                boxShadow: streak.count >= 7
+                  ? '0 0 14px rgba(255,69,0,.6)'
+                  : '0 2px 8px rgba(249,115,22,.4)',
               }}>
-                <span style={{ fontSize: 14 }}>🔥</span>
                 <span style={{
-                  fontSize: 13, fontWeight: 900,
-                  color: streak.count >= 3 ? '#fff' : '#92400E',
-                }}>
-                  {streak.count} {tr.streakLabel}
-                </span>
+                  fontSize: streak.count >= 7 ? 22 : 18,
+                  filter: streak.count >= 7 ? 'drop-shadow(0 0 4px #FF4500)' : 'none',
+                  lineHeight: 1,
+                }}>🔥</span>
+                <div style={{ display: 'flex', flexDirection: 'column', lineHeight: 1.1 }}>
+                  <span style={{ fontSize: 18, fontWeight: 900, color: '#fff', lineHeight: 1 }}>
+                    {streak.count}
+                  </span>
+                  <span style={{ fontSize: 10, fontWeight: 700, color: 'rgba(255,255,255,.85)', letterSpacing: 0.5 }}>
+                    {tr.streakLabel.toUpperCase()}
+                  </span>
+                </div>
               </div>
             )}
           </div>
