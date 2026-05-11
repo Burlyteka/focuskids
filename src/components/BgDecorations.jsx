@@ -20,14 +20,6 @@ export default function BgDecorations({ themeId }) {
           delay: rand(-14, 0),
           opacity: rand(0.3, 0.7),
         })),
-        fish: Array.from({ length: 3 }, (_, i) => ({
-          top:   rand(15, 80),
-          dur:   rand(18, 32),
-          delay: -(i * 9 + rand(0, 6)),
-          size:  rand(22, 36),
-          emoji: FISH[Math.floor(rand(0, FISH.length))],
-          fromRight: i % 2 === 1,
-        })),
       }
     } else if (themeId === 'candy') {
       ref.current = {
@@ -59,7 +51,6 @@ export default function BgDecorations({ themeId }) {
   const { items } = ref.current
 
   if (themeId === 'ocean') {
-    const { fish = [] } = ref.current
     return (
       <div className="bg-dec-wrap">
         {items.map((b, i) => (
@@ -70,21 +61,6 @@ export default function BgDecorations({ themeId }) {
             animationDelay: `${b.delay}s`,
             opacity: b.opacity,
           }} />
-        ))}
-        {fish.map((f, i) => (
-          <div key={`fish-${i}`} style={{
-            position: 'absolute',
-            top: `${f.top}%`,
-            fontSize: f.size,
-            animation: f.fromRight
-              ? `fishSwimRight ${f.dur}s ${f.delay}s linear infinite`
-              : `fishSwimLeft ${f.dur}s ${f.delay}s linear infinite`,
-            pointerEvents: 'none',
-            zIndex: 0,
-            filter: 'drop-shadow(0 2px 6px rgba(0,0,0,.3))',
-          }}>
-            {f.emoji}
-          </div>
         ))}
       </div>
     )
