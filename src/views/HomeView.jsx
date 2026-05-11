@@ -108,19 +108,13 @@ export default function HomeView() {
             {name ? '!' : ''}
           </p>
           <div style={{ display: 'flex', alignItems: 'center', gap: 10, marginTop: 4, flexWrap: 'wrap' }}>
-            {stars > 0 && (
+            {stars >= 10 && (
               <div style={{
-                display: 'flex', alignItems: 'center', gap: 5,
-                background: 'linear-gradient(135deg,#FEF3C7,#FDE68A)',
-                borderRadius: 999, padding: '5px 12px',
-                boxShadow: '0 2px 8px rgba(245,158,11,.3)',
+                fontSize: 13, fontWeight: 800,
+                background: 'linear-gradient(135deg,#7C3AED,#4C6EF5)',
+                color: '#fff', borderRadius: 999, padding: '4px 10px',
               }}>
-                <span style={{ fontSize: 16 }}>⭐</span>
-                <span style={{ fontSize: 15, fontWeight: 900, color: '#92400E' }}>
-                  {stars}
-                </span>
-                {stars >= 30 && <span style={{ fontSize: 13 }}>{tr.badge30}</span>}
-                {stars >= 10 && stars < 30 && <span style={{ fontSize: 13 }}>{tr.badge10}</span>}
+                {stars >= 30 ? tr.badge30 : tr.badge10}
               </div>
             )}
             {streak.count > 0 && (
