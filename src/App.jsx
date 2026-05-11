@@ -169,6 +169,21 @@ function Inner() {
         </div>
       </div>
 
+      {/* Demo banner */}
+      {user?.isDemo && (
+        <div style={{
+          background: 'linear-gradient(90deg,#7C3AED,#EC4899)',
+          color: '#fff', textAlign: 'center',
+          padding: '7px 12px', fontSize: 13, fontWeight: 800,
+          letterSpacing: .3, flexShrink: 0,
+        }}>
+          🎮 {lang === 'es'
+            ? 'Modo Demo — Consigue tu código en '
+            : 'Demo Mode — Get your code at '}
+          <span style={{ textDecoration: 'underline' }}>Etsy</span>
+        </div>
+      )}
+
       {/* Main content */}
       <div style={{ flex: 1, overflow: 'hidden', display: 'flex', flexDirection: 'column' }}>
         {renderView()}
