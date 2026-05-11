@@ -305,6 +305,8 @@ export default function ParentDashboard() {
   const lastSeenStr  = data?.last_seen ? new Date(data.last_seen).toISOString().slice(0, 10) : null
   const todayStr     = new Date().toISOString().slice(0, 10)
   const diffDays     = lastSeenStr ? daysBetween(lastSeenStr, todayStr) : null
+  const streakCount  = data?.routine_state?.streak?.count ?? 0
+  const streakLast   = data?.routine_state?.streak?.last_date ?? null
   const mood         = getMood(lastMoodKey)
   const { pct: starPct, next: starNext } = getStarProgress(childStars)
   const existingMsg  = data?.routine_state?.parent_message || null
@@ -622,6 +624,63 @@ export default function ParentDashboard() {
                 <BigNum value={routinesDone} color="#8DB5A0" />
                 <MiniCalendar lastSeenStr={lastSeenStr} />
                 <Hint text={tr.pdCalHint} />
+              </StatCard>
+
+              {/* ── STREAK CARD ── */}
+              <StatCard bg={streakCount >= 7 ? 'linear-gradient(135deg,#FFF1E6,#FFE0CC)' : streakCount >= 3 ? 'linear-gradient(135deg,#FFF7ED,#FFEDD5)' : '#FFF7ED'} style={{ gridColumn: '1 / -1' }}>
+                <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
+                  <div style={{ flex: 1 }}>
+                    <StatTitle icon="🔥" label={lang === 'es' ? 'Racha de días' : 'Day streak'} color="#C2410C" />
+                    <div style={{ display: 'flex', alignItems: 'baseline', gap: 8 }}>
+                      <div style={{ fontSize: 52, fontWeight: 900, lineHeight: 1, color: streakCount >= 7 ? '#EA4500' : streakCount >= 3 ? '#F97316' : '#FB923C' }}>
+                        {streakCount}
+                      </div>
+                      <span style={{ fontSize: 16, fontWeight: 800, color: '#C2410C' }}>
+                        {lang === 'es' ? 'días seguidos' : 'days in a row'}
+                      </span>
+                    </div>
+                    {streakLast && (
+                      <div style={{ fontSize: 11, fontWeight: 700, color: '#9A6040', marginTop: 4 }}>
+                        {lang === 'es' ? 'Último día: ' : 'Last day: '}
+                        {new Date(streakLast + 'T12:00:00').toLocaleDateString(
+                          lang === 'es' ? 'es-ES' : 'en-US',
+                          { weekday: 'long', day: 'numeric', month: 'short' }
+                        )}
+                      </div>
+                    )}
+                    <Hint text={
+                      streakCount === 0
+                        ? (lang === 'es' ? 'Aún no ha completado ninguna rutina hoy.' : 'No routine completed yet today.')
+                        : streakCount >= 7
+                        ? (lang === 'es' ? `¡Increíble! ${childName} lleva ${streakCount} días seguidos. 🏆` : `Amazing! ${childName} has ${streakCount} days in a row. 🏆`)
+                        : streakCount >= 3
+                        ? (lang === 'es' ? `¡Buen ritmo! Anímale a llegar a 7 días. 💪` : `Great rhythm! Encourage them to reach 7 days. 💪`)
+                        : (lang === 'es' ? 'Cada día cuenta. ¡Sigue así! 🌟' : 'Every day counts. Keep it up! 🌟')
+                    } />
+                  </div>
+                  <div style={{
+                    fontSize: streakCount >= 7 ? 72 : 56,
+                    filter: streakCount >= 7 ? 'drop-shadow(0 0 12px rgba(255,100,0,.5))' : 'none',
+                    lineHeight: 1, flexShrink: 0, marginLeft: 16,
+                  }}>
+                    {streakCount >= 7 ? '🔥' : streakCount >= 3 ? '🔥' : streakCount > 0 ? '🔥' : '💤'}
+                  </div>
+                </div>
+                {streakCount >= 3 && (
+                  <div style={{ display: 'flex', gap: 4, marginTop: 12, flexWrap: 'wrap' }}>
+                    {Array.from({ length: Math.min(streakCount, 14) }, (_, i) => (
+                      <div key={i} style={{
+                        width: 20, height: 20, borderRadius: '50%',
+                        background: i < streakCount ? 'linear-gradient(135deg,#F97316,#EF4444)' : '#E5E7EB',
+                        display: 'flex', alignItems: 'center', justifyContent: 'center',
+                        fontSize: 10,
+                      }}>
+                        {i < streakCount ? '🔥' : ''}
+                      </div>
+                    ))}
+                    {streakCount > 14 && <span style={{ fontSize: 12, fontWeight: 800, color: '#F97316', alignSelf: 'center' }}>+{streakCount - 14}</span>}
+                  </div>
+                )}
               </StatCard>
 
               <StatCard bg="#EEF3F7">
