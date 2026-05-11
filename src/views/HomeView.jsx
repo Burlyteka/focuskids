@@ -23,7 +23,7 @@ const SECTION_KEYS = {
   mood:    'secMood',
   move:    'secMove',
   task:    'secTask',
-  rewards: 'starsLabel',
+  rewards: 'secRewards',
   store:   'storeTitle',
 }
 

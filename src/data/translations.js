@@ -51,6 +51,7 @@ export const t = {
     secMood: '¿Cómo me siento?',
     secMove: 'Hora de Moverme',
     secTask: 'Tarea',
+    secRewards: '⭐ Mis Premios',
     // routines
     morning: 'Mañana 🌅',
     night: 'Tarde/Noche 🌙',
@@ -285,6 +286,7 @@ export const t = {
     secMood: 'How do I feel?',
     secMove: 'Time to Move',
     secTask: 'Homework',
+    secRewards: '⭐ My Rewards',
     morning: 'Morning 🌅',
     night: 'Afternoon/Night 🌙',
     routineProgress: 'done',

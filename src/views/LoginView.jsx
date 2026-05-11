@@ -69,11 +69,28 @@ export default function LoginView({ role, onBack }) {
     <div className="login-space">
       <StarsBg />
 
-      {onBack && (
-        <button className="login-back-btn" onClick={onBack}>
-          ← {tr.backBtn?.replace('← ', '') || 'Volver'}
+      {/* Top bar: back + lang */}
+      <div style={{
+        position: 'absolute', top: 16, left: 16, right: 16,
+        display: 'flex', justifyContent: 'space-between', alignItems: 'center',
+      }}>
+        {onBack ? (
+          <button className="login-back-btn" onClick={onBack}>
+            ← {tr.backBtn?.replace('← ', '') || 'Volver'}
+          </button>
+        ) : <div />}
+        <button
+          className="lang-btn"
+          onClick={toggleLang}
+          style={{
+            background: 'rgba(255,255,255,.15)',
+            border: '2px solid rgba(255,255,255,.4)',
+            color: 'rgba(255,255,255,.9)',
+          }}
+        >
+          {lang === 'es' ? '🇬🇧 EN' : '🇪🇸 ES'}
         </button>
-      )}
+      </div>
 
       <div className="login-rocket">🚀</div>
 
@@ -118,19 +135,6 @@ export default function LoginView({ role, onBack }) {
 
         <p className="login-hint">{hintText}</p>
       </div>
-
-      <button
-        className="lang-btn"
-        onClick={toggleLang}
-        style={{
-          position: 'absolute', top: 20, right: 20,
-          background: 'rgba(255,255,255,.15)',
-          border: '2px solid rgba(255,255,255,.4)',
-          color: 'rgba(255,255,255,.9)',
-        }}
-      >
-        {lang === 'es' ? '🇬🇧 EN' : '🇪🇸 ES'}
-      </button>
     </div>
   )
 }
