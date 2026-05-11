@@ -131,7 +131,7 @@ function Inner() {
   }
 
   return (
-    <div style={{ display: 'flex', flexDirection: 'column', height: '100%', overflow: 'hidden', ...themeStyle }}>
+    <div style={{ display: 'flex', flexDirection: 'column', height: '100%', overflow: 'hidden', position: 'relative', ...themeStyle }}>
       <BgDecorations themeId={activeBg} />
       {/* Top bar */}
       <div className="topbar">

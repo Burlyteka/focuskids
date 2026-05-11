@@ -1676,7 +1676,7 @@ body {
    BG DECORATIONS
    ══════════════════════════════════════════════ */
 .bg-dec-wrap {
-  position: fixed; inset: 0;
+  position: absolute; inset: 0;
   pointer-events: none; z-index: 0; overflow: hidden;
 }
 
