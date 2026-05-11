@@ -3,11 +3,24 @@ import { useApp } from '../contexts/AppContext.jsx'
 import StarsBg from '../components/StarsBg.jsx'
 
 export default function RoleSelectView({ onSelect }) {
-  const { tr, toggleLang, lang } = useApp()
+  const { tr, toggleLang, lang, startDemo } = useApp()
 
   return (
     <div className="login-space">
       <StarsBg />
+
+      <button
+        className="lang-btn"
+        onClick={toggleLang}
+        style={{
+          position: 'absolute', top: 20, right: 20,
+          background: 'rgba(255,255,255,.15)',
+          border: '2px solid rgba(255,255,255,.4)',
+          color: 'rgba(255,255,255,.9)',
+        }}
+      >
+        {lang === 'es' ? '🇬🇧 EN' : '🇪🇸 ES'}
+      </button>
 
       <div className="login-logo" style={{ marginBottom: 4 }}>
         <h1 style={{ fontSize: 26, lineHeight: 1.3 }}>{tr.roleWho}</h1>
@@ -27,18 +40,24 @@ export default function RoleSelectView({ onSelect }) {
         </button>
       </div>
 
+      {/* Demo button */}
       <button
-        className="lang-btn"
-        onClick={toggleLang}
+        onClick={startDemo}
         style={{
-          position: 'absolute', top: 20, right: 20,
-          background: 'rgba(255,255,255,.15)',
-          border: '2px solid rgba(255,255,255,.4)',
-          color: 'rgba(255,255,255,.9)',
+          marginTop: 8,
+          background: 'rgba(255,255,255,.12)',
+          border: '2px dashed rgba(255,255,255,.4)',
+          borderRadius: 16, padding: '14px 32px',
+          fontFamily: 'var(--font)', fontWeight: 800, fontSize: 15,
+          color: 'rgba(255,255,255,.85)', cursor: 'pointer',
+          display: 'flex', alignItems: 'center', gap: 8,
         }}
       >
-        {lang === 'es' ? '🇬🇧 EN' : '🇪🇸 ES'}
+        🎮 {lang === 'es' ? 'Probar Demo' : 'Try Demo'}
       </button>
+      <p style={{ fontSize: 11, fontWeight: 700, color: 'rgba(255,255,255,.4)', marginTop: 6 }}>
+        {lang === 'es' ? 'Sin código — solo explorar' : 'No code needed — just explore'}
+      </p>
     </div>
   )
 }

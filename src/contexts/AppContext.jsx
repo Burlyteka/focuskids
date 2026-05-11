@@ -226,9 +226,29 @@ export function AppProvider({ children }) {
 
   // ── Saves with toast feedback on failure ──
   async function save(nkCode, data) {
+    if (userRef.current?.isDemo) return true   // demo: skip Supabase
     const ok = await saveProgress(nkCode, data)
     if (!ok) showToast('📦 Sin conexión — guardado localmente')
     return ok
+  }
+
+  function startDemo() {
+    const yesterday = new Date(Date.now() - 86400000).toISOString().slice(0, 10)
+    const demoUser  = { role: 'kid', nkCode: 'DEMO', username: 'Demo', isDemo: true }
+    const demoState = {
+      streak: { count: 2, last_date: yesterday },
+      active_bg: 'space',
+      unlocked_bgs: ['space', 'ocean'],
+      custom_reward: { name: 'Ice Cream 🍦', emoji: '🍦', stars: 50, active: true },
+    }
+    setUser(demoUser)
+    setStars(18)
+    setRoutineState(demoState)
+    setRoutinesDone(5)
+    setFocusMinutes(40)
+    setGamesPlayed(8)
+    setTasks([])
+    setView('home')
   }
 
   // ── Timer actions ──
@@ -523,7 +543,7 @@ export function AppProvider({ children }) {
   return (
     <Ctx.Provider value={{
       lang, tr, toggleLang,
-      user, login, logout, saveUsername, sessionLoading,
+      user, login, logout, saveUsername, sessionLoading, startDemo,
       stars, addStars,
       routineState, saveRoutineState,
       streak: routineState?.streak || { count: 0, last_date: null },

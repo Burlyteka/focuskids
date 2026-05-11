@@ -13,7 +13,8 @@
   --bg:      #F0F4FF;
   --card:    #ffffff;
   --text:    #1E1B4B;
-  --soft:    #6B7280;
+  --soft:      #6B7280;
+  --text-soft: #6B7280;
   --r-sm:    14px;
   --r-md:    22px;
   --r-lg:    32px;
@@ -1005,8 +1006,8 @@ body {
 .nav-item:active { transform: scale(.84); }
 .nav-item .ni-e { font-size: 24px; transition: transform .2s; }
 .nav-item.active .ni-e { transform: scale(1.22); }
-.nav-item .ni-l { font-size: 11px; font-weight: 800; color: var(--soft); transition: color .2s; }
-.nav-item.active .ni-l { color: var(--blue); }
+.nav-item .ni-l { font-size: 11px; font-weight: 800; color: var(--text); opacity: .55; transition: color .2s, opacity .2s; }
+.nav-item.active .ni-l { color: var(--blue); opacity: 1; }
 .nav-item .ni-dot {
   width: 4px; height: 4px; border-radius: 50%;
   background: transparent; transition: background .2s;
