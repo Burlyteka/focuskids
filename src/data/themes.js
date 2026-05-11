@@ -6,7 +6,6 @@ export const BG_THEMES = [
   { id: 'candy',     emoji: '🍭', es: 'Mundo Dulce',       en: 'Candy World',     cost: 400,  gradient: 'linear-gradient(135deg,#FF9A9E,#FECFEF)',             dark: false },
   { id: 'galaxy',    emoji: '🌌', es: 'Galaxia Arcoíris',  en: 'Rainbow Galaxy',  cost: 600,  gradient: 'linear-gradient(135deg,#4776E6,#8E54E9)',             dark: true  },
   { id: 'superhero', emoji: '⚡', es: 'Superhéroe',        en: 'Superhero',       cost: 1000, gradient: 'linear-gradient(135deg,#1a1a2e,#16213e,#e94560)',     dark: true  },
-  { id: 'aurora',    emoji: '🌌', es: 'Aurora Boreal',     en: 'Northern Lights', cost: 800,  gradient: 'linear-gradient(135deg,#0a3d2b,#1a6b4a,#4FC3F7,#7C4DFF)', dark: true  },
 ]
 
 export const BG_MAP = Object.fromEntries(BG_THEMES.map(t => [t.id, t]))
