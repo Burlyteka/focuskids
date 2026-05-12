@@ -159,7 +159,7 @@ function Inner() {
         </div>
         <div style={{ display: 'flex', gap: 8, alignItems: 'center' }}>
           <button className="lang-btn" onClick={toggleLang}>
-            {lang === 'es' ? '\U0001f1ec\U0001f1e7 EN' : '\U0001f1ea\U0001f1f8 ES'}
+            {lang === 'es' ? '🇬🇧 EN' : '🇪🇸 ES'}
           </button>
           <button
             onClick={logout}
@@ -182,7 +182,7 @@ function Inner() {
           padding: '7px 12px', fontSize: 13, fontWeight: 800,
           letterSpacing: .3, flexShrink: 0,
         }}>
-          \U0001f3ae {lang === 'es'
+          🎮 {lang === 'es'
             ? 'Modo Demo — Consigue tu código en '
             : 'Demo Mode — Get your code at '}
           <a
