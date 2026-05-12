@@ -223,7 +223,7 @@ function Inner() {
               style={{ background: 'rgba(255,255,255,.25)', color: '#fff', fontSize: 16 }}
               onClick={() => setCelebration(null)}
             >
-              \U0001f389
+              🎉
             </button>
           </div>
         </div>
