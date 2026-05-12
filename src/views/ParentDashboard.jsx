@@ -18,38 +18,72 @@ function daysBetween(a, b) {
 }
 
 /* ── daily tips ─────────────────────────────────── */
-const DAILY_TIPS = [
-  'Usa un timer visual cuando tu hijo/a hace tarea. El tiempo abstracto no existe para el cerebro TDAH.',
-  'Antes de salir, repasa la rutina juntos en voz alta como si fuera un juego.',
-  'Cada logro pequeño merece celebración real. El cerebro TDAH necesita dopamina inmediata.',
-  'Reduce las pantallas 1 hora antes de dormir — el TDAH ya tiene dificultad para bajar revoluciones.',
-  "Dale opciones en lugar de órdenes: '¿Haces la tarea antes o después de merendar?'",
-  'El contacto visual antes de hablar aumenta la atención. Agáchate a su nivel.',
-  'Instrucciones de UN solo paso a la vez. El cerebro TDAH se satura con múltiples comandos.',
-  '20 minutos de actividad física antes de la tarea mejora la concentración hasta 4 horas.',
-  'Un espacio libre de distracciones visuales ayuda más que horas de castigo.',
-  'El TDAH no es falta de querer. Es dificultad para HACER lo que se quiere.',
-  "Celebra el esfuerzo, no el resultado: '¡Qué bien que lo intentaste!' vale mucho.",
-  'La consistencia en los horarios es la medicina más barata y efectiva para el TDAH.',
-  'Cuando haya crisis, no razones durante ella. Espera a que pase y habla después en calma.',
-  'La naturaleza reduce síntomas TDAH. 20 min al aire libre = mejor regulación emocional.',
-  'Usa recordatorios visuales: post-its con dibujos en los lugares clave de la rutina.',
-  'El sueño regula la dopamina. Sin buen sueño, los síntomas TDAH empeoran significativamente.',
-  'Dale responsabilidades pequeñas con consecuencias naturales — construye autonomía real.',
-  'Antes de dormirse, recuerden 3 cosas buenas del día. El TDAH tiende a recordar solo lo negativo.',
-  'Evita comparar con hermanos o compañeros. El TDAH ya genera mucha vergüenza interna.',
-  'El deporte de equipo desarrolla habilidades sociales Y ayuda con la regulación emocional.',
-  "Cuando dice que hizo algo y no lo hizo, puede ser memoria de trabajo fallando, no mentira.",
-  'Los abrazos y el contacto físico positivo regulan el sistema nervioso del niño con TDAH.',
-  'Una lista visual para la mañana puede reemplazar 10 recordatorios verbales.',
-  'Las transiciones (terminar una actividad, empezar otra) son momentos de alta tensión para el TDAH.',
-  'El humor y la conexión emocional contigo son el mayor motivador para tu hijo/a.',
-  'Un hobby apasionante puede convertirse en su mayor fortaleza en el futuro.',
-  'Terapia conductual + rutinas + apoyo familiar = combinación más efectiva para el TDAH.',
-  'Tu bienestar como padre/madre también importa. Cuídate para poder cuidar mejor.',
-  'El TDAH puede ser un superpoder: creatividad, energía, pensamiento divergente.',
-  'Recuerda: el objetivo no es un niño perfecto, sino un niño que aprende a conocerse.',
-]
+const DAILY_TIPS = {
+  es: [
+    'Usa un timer visual cuando tu hijo/a hace tarea. El tiempo abstracto no existe para el cerebro TDAH.',
+    'Antes de salir, repasa la rutina juntos en voz alta como si fuera un juego.',
+    'Cada logro pequeño merece celebración real. El cerebro TDAH necesita dopamina inmediata.',
+    'Reduce las pantallas 1 hora antes de dormir. El TDAH ya tiene dificultad para bajar revoluciones.',
+    'Dale opciones en lugar de ordenes: Haces la tarea antes o despues de merendar?',
+    'El contacto visual antes de hablar aumenta la atención. Agáchate a su nivel.',
+    'Instrucciones de UN solo paso a la vez. El cerebro TDAH se satura con múltiples comandos.',
+    '20 minutos de actividad física antes de la tarea mejora la concentración hasta 4 horas.',
+    'Un espacio libre de distracciones visuales ayuda más que horas de castigo.',
+    'El TDAH no es falta de querer. Es dificultad para HACER lo que se quiere.',
+    'Celebra el esfuerzo, no el resultado: Qué bien que lo intentaste! vale mucho.',
+    'La consistencia en los horarios es la medicina más barata y efectiva para el TDAH.',
+    'Cuando haya crisis, no razones durante ella. Espera a que pase y habla después en calma.',
+    'La naturaleza reduce síntomas TDAH. 20 min al aire libre = mejor regulación emocional.',
+    'Usa recordatorios visuales: post-its con dibujos en los lugares clave de la rutina.',
+    'El sueño regula la dopamina. Sin buen sueño, los síntomas TDAH empeoran significativamente.',
+    'Dale responsabilidades pequeñas con consecuencias naturales — construye autonomía real.',
+    'Antes de dormirse, recuerden 3 cosas buenas del día. El TDAH tiende a recordar solo lo negativo.',
+    'Evita comparar con hermanos o compañeros. El TDAH ya genera mucha vergüenza interna.',
+    'El deporte de equipo desarrolla habilidades sociales Y ayuda con la regulación emocional.',
+    'Cuando dice que hizo algo y no lo hizo, puede ser memoria de trabajo fallando, no mentira.',
+    'Los abrazos y el contacto físico positivo regulan el sistema nervioso del niño con TDAH.',
+    'Una lista visual para la mañana puede reemplazar 10 recordatorios verbales.',
+    'Las transiciones son momentos de alta tensión para el TDAH. Avisa con anticipación.',
+    'El humor y la conexión emocional contigo son el mayor motivador para tu hijo/a.',
+    'Un hobby apasionante puede convertirse en su mayor fortaleza en el futuro.',
+    'Terapia conductual + rutinas + apoyo familiar = combinación más efectiva para el TDAH.',
+    'Tu bienestar como padre/madre también importa. Cuídate para poder cuidar mejor.',
+    'El TDAH puede ser un superpoder: creatividad, energía, pensamiento divergente.',
+    'Recuerda: el objetivo no es un niño perfecto, sino un niño que aprende a conocerse.',
+  ],
+  en: [
+    'Use a visual timer during homework. Abstract time does not exist for the ADHD brain.',
+    'Before leaving, review the routine together out loud — make it a game.',
+    'Every small win deserves real celebration. The ADHD brain needs immediate dopamine.',
+    'Reduce screens 1 hour before bed. ADHD already struggles to wind down.',
+    'Give choices instead of orders: Do you want to do homework before or after a snack?',
+    'Make eye contact before speaking — it increases attention. Get down to their level.',
+    'One instruction at a time. The ADHD brain gets overwhelmed by multiple commands.',
+    '20 minutes of physical activity before homework improves concentration for up to 4 hours.',
+    'A distraction-free space helps more than hours of punishment.',
+    'ADHD is not a lack of wanting. It is difficulty DOING what one wants.',
+    'Celebrate effort, not just results: I am so proud you tried! goes a long way.',
+    'Consistent schedules are the cheapest and most effective medicine for ADHD.',
+    'During a meltdown, do not reason — wait for it to pass, then talk calmly.',
+    'Nature reduces ADHD symptoms. 20 min outdoors = better emotional regulation.',
+    'Use visual reminders: sticky notes with drawings in key spots of the routine.',
+    'Sleep regulates dopamine. Poor sleep significantly worsens ADHD symptoms.',
+    'Give small responsibilities with natural consequences — it builds real independence.',
+    'Before bed, name 3 good things from the day. ADHD tends to remember only the negatives.',
+    'Avoid comparing them to siblings or classmates. ADHD already creates a lot of inner shame.',
+    'Team sports build social skills AND help with emotional regulation.',
+    'When they say they did something and did not, it may be working memory failing, not lying.',
+    'Hugs and positive physical contact regulate the nervous system of a child with ADHD.',
+    'A visual morning checklist can replace 10 verbal reminders.',
+    'Transitions are high-tension moments for ADHD. Give advance warning.',
+    'Humor and emotional connection with you are the greatest motivators for your child.',
+    'A passionate hobby can become their greatest strength in the future.',
+    'Behavioral therapy + routines + family support = most effective combo for ADHD.',
+    'Your wellbeing as a parent matters too. Take care of yourself to better care for them.',
+    'ADHD can be a superpower: creativity, energy, divergent thinking.',
+    'Remember: the goal is not a perfect child, but a child who learns to know themselves.',
+  ]
+}
 const todayTipIndex = new Date().getDate() % DAILY_TIPS.length
 
 /* ── quiz ────────────────────────────────────────── */
@@ -130,30 +164,46 @@ function ProgressBar({ pct, color }) {
 }
 
 /* ── resource body components ───────────────────── */
-function IcebergBody() {
+function IcebergBody({ lang }) {
+  const visible = lang === 'es'
+    ? ['😤 Irritable', '🙈 Distraído', '💨 Inquieto', '⚡ Impulsivo']
+    : ['😤 Irritable', '🙈 Distracted', '💨 Restless', '⚡ Impulsive']
+  const hidden = lang === 'es'
+    ? ['Vergüenza interna', 'Regulación emocional difícil', 'Memoria de trabajo débil', 'Ansiedad interna', 'Procesamiento sensorial']
+    : ['Inner shame', 'Difficult emotional regulation', 'Weak working memory', 'Inner anxiety', 'Sensory processing']
+  const footer = lang === 'es'
+    ? 'Tu hijo/a no lo hace a propósito. Su cerebro funciona diferente. 💙'
+    : 'Your child does not do it on purpose. Their brain works differently. 💙'
   return (
     <div>
-      <div style={{ fontSize: 11, fontWeight: 900, color: '#A8C4D4', marginBottom: 6 }}>A LA VISTA</div>
+      <div style={{ fontSize: 11, fontWeight: 900, color: '#A8C4D4', marginBottom: 6 }}>
+        {lang === 'es' ? 'A LA VISTA' : 'ABOVE WATER'}
+      </div>
       <div style={{ display: 'flex', flexWrap: 'wrap', gap: 5, marginBottom: 12 }}>
-        {['😤 Irritable', '🙈 Distraído', '💨 Inquieto', '⚡ Impulsivo'].map(t => (
+        {visible.map(t => (
           <span key={t} style={{ fontSize: 11, fontWeight: 700, background: '#A8C4D4', color: '#fff', borderRadius: 99, padding: '3px 8px' }}>{t}</span>
         ))}
       </div>
-      <div style={{ fontSize: 11, fontWeight: 900, color: '#6699BB', marginBottom: 6 }}>DEBAJO DEL AGUA</div>
+      <div style={{ fontSize: 11, fontWeight: 900, color: '#6699BB', marginBottom: 6 }}>
+        {lang === 'es' ? 'DEBAJO DEL AGUA' : 'BELOW THE SURFACE'}
+      </div>
       <div style={{ display: 'flex', flexWrap: 'wrap', gap: 5, marginBottom: 12 }}>
-        {['Vergüenza interna', 'Regulación emocional difícil', 'Memoria de trabajo débil', 'Ansiedad interna', 'Procesamiento sensorial'].map(t => (
+        {hidden.map(t => (
           <span key={t} style={{ fontSize: 10, fontWeight: 600, background: '#6699BB', color: '#fff', borderRadius: 99, padding: '3px 7px' }}>{t}</span>
         ))}
       </div>
-      <div style={{ fontSize: 12, fontWeight: 700, color: '#5580A0', lineHeight: 1.5 }}>Tu hijo/a no lo hace a propósito. Su cerebro funciona diferente. 💙</div>
+      <div style={{ fontSize: 12, fontWeight: 700, color: '#5580A0', lineHeight: 1.5 }}>{footer}</div>
     </div>
   )
 }
 
-function StopBody() {
+function StopBody({ lang }) {
+  const steps = lang === 'es'
+    ? [['S','STOP','Para lo que estás haciendo'],['T','TAKE A BREATH','Respira profundo 3 veces'],['O','OBSERVE','¿Qué está pasando realmente?'],['P','PROCEED','Responde con calma, no reacciones']]
+    : [['S','STOP','Stop what you are doing'],['T','TAKE A BREATH','Breathe deeply 3 times'],['O','OBSERVE','What is really happening?'],['P','PROCEED','Respond calmly, don't react']]
   return (
     <div>
-      {[['S', 'STOP', 'Para lo que estás haciendo'], ['T', 'TAKE A BREATH', 'Respira profundo 3 veces'], ['O', 'OBSERVE', '¿Qué está pasando realmente?'], ['P', 'PROCEED', 'Responde con calma, no reacciones']].map(([letter, word, desc]) => (
+      {steps.map(([letter, word, desc]) => (
         <div key={letter} style={{ display: 'flex', gap: 10, alignItems: 'flex-start', marginBottom: 10 }}>
           <div style={{ width: 28, height: 28, borderRadius: 8, flexShrink: 0, background: '#F4A58A', color: '#fff', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: 14, fontWeight: 900 }}>{letter}</div>
           <div>
@@ -162,20 +212,27 @@ function StopBody() {
           </div>
         </div>
       ))}
-      <div style={{ fontSize: 12, fontWeight: 700, color: '#A07060' }}>Responder vs reaccionar cambia todo 💛</div>
+      <div style={{ fontSize: 12, fontWeight: 700, color: '#A07060' }}>
+        {lang === 'es' ? 'Responder vs reaccionar cambia todo 💛' : 'Responding vs reacting changes everything 💛'}
+      </div>
     </div>
   )
 }
 
-function ExecutiveFxBody() {
+function ExecutiveFxBody({ lang }) {
+  const desc = lang === 'es'
+    ? <p style={{ fontSize: 12, fontWeight: 600, color: '#5A8A74', lineHeight: 1.5, margin: '0 0 10px' }}>Organiza, planifica y controla impulsos. En TDAH se desarrollan más lento <strong>(2–3 años de retraso)</strong>, no por falta de inteligencia.</p>
+    : <p style={{ fontSize: 12, fontWeight: 600, color: '#5A8A74', lineHeight: 1.5, margin: '0 0 10px' }}>Organizes, plans and controls impulses. In ADHD they develop slower <strong>(2–3 year delay)</strong>, not due to lack of intelligence.</p>
+  const strats = lang === 'es'
+    ? ['Listas visuales en lugar de instrucciones verbales', 'Una tarea a la vez, siempre', 'Timers visibles en el escritorio', 'Rutinas predecibles todos los días']
+    : ['Visual checklists instead of verbal instructions', 'One task at a time, always', 'Visible timers on the desk', 'Predictable routines every day']
   return (
     <div>
-      <p style={{ fontSize: 12, fontWeight: 600, color: '#5A8A74', lineHeight: 1.5, margin: '0 0 10px' }}>
-        Organiza, planifica y controla impulsos. En TDAH se desarrollan más lento
-        <strong> (2–3 años de retraso)</strong>, no por falta de inteligencia.
-      </p>
-      <div style={{ fontSize: 12, fontWeight: 900, color: '#5A8A74', marginBottom: 8 }}>⚙️ Estrategias:</div>
-      {['Listas visuales en lugar de instrucciones verbales', 'Una tarea a la vez, siempre', 'Timers visibles en el escritorio', 'Rutinas predecibles todos los días'].map(s => (
+      {desc}
+      <div style={{ fontSize: 12, fontWeight: 900, color: '#5A8A74', marginBottom: 8 }}>
+        {lang === 'es' ? '⚙️ Estrategias:' : '⚙️ Strategies:'}
+      </div>
+      {strats.map(s => (
         <div key={s} style={{ display: 'flex', gap: 8, marginBottom: 6 }}>
           <span style={{ color: '#8DB5A0', fontWeight: 900, fontSize: 13 }}>✓</span>
           <span style={{ fontSize: 12, fontWeight: 600, color: '#5A8A74', lineHeight: 1.4 }}>{s}</span>
@@ -185,32 +242,43 @@ function ExecutiveFxBody() {
   )
 }
 
-function EmotionBody() {
+function EmotionBody({ lang }) {
+  const intro = lang === 'es' ? 'Cuando tu hijo/a se desborda:' : 'When your child overflows:'
+  const steps = lang === 'es'
+    ? [['1','No razones durante la crisis — espera a que pase'],['2','Valida: "Veo que estás muy enojado/a, eso está bien"'],['3','Ofrece el ejercicio de respiración de la app'],['4','Después (en calma): habla sobre lo que pasó']]
+    : [['1','Don't reason during the meltdown — wait for it to pass'],['2','Validate: "I see you're very angry, that's okay"'],['3','Offer the breathing exercise in the app'],['4','Afterwards (calmly): talk about what happened']]
+  const footer = lang === 'es' ? 'Tu calma regula la de ellos 🌿' : 'Your calm regulates theirs 🌿'
   return (
     <div>
-      <p style={{ fontSize: 12, fontWeight: 600, color: '#7A6AA0', lineHeight: 1.5, margin: '0 0 10px' }}>Cuando tu hijo/a se desborda:</p>
-      {[['1', 'No razones durante la crisis — espera a que pase'], ['2', 'Valida: "Veo que estás muy enojado/a, eso está bien"'], ['3', 'Ofrece el ejercicio de respiración de la app'], ['4', 'Después (en calma): habla sobre lo que pasó']].map(([n, t]) => (
+      <p style={{ fontSize: 12, fontWeight: 600, color: '#7A6AA0', lineHeight: 1.5, margin: '0 0 10px' }}>{intro}</p>
+      {steps.map(([n, t]) => (
         <div key={n} style={{ display: 'flex', gap: 10, marginBottom: 8 }}>
           <div style={{ width: 22, height: 22, borderRadius: '50%', flexShrink: 0, background: '#B8A9D9', color: '#fff', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: 11, fontWeight: 900 }}>{n}</div>
           <span style={{ fontSize: 12, fontWeight: 600, color: '#6A5A90', lineHeight: 1.5 }}>{t}</span>
         </div>
       ))}
-      <div style={{ fontSize: 12, fontWeight: 700, color: '#7A6AA0' }}>Tu calma regula la de ellos 🌿</div>
+      <div style={{ fontSize: 12, fontWeight: 700, color: '#7A6AA0' }}>{footer}</div>
     </div>
   )
 }
 
-function StrategiesBody() {
+function StrategiesBody({ lang }) {
+  const dos = lang === 'es'
+    ? ['Una instrucción a la vez', 'Contacto visual antes de hablar', 'Celebra el esfuerzo, no solo el resultado', 'Descansos activos cada 20 minutos', 'Ambiente organizado y predecible', 'Tiempo en naturaleza reduce síntomas']
+    : ['One instruction at a time', 'Eye contact before speaking', 'Celebrate effort, not just results', 'Active breaks every 20 minutes', 'Organized and predictable environment', 'Time in nature reduces symptoms']
+  const donts = lang === 'es'
+    ? ['Repetir: "¿Cuántas veces te tengo que decir?"', 'Comparar con otros niños']
+    : ['"How many times do I have to tell you?"', 'Comparing them to other children']
   return (
     <div>
-      {['Una instrucción a la vez', 'Contacto visual antes de hablar', 'Celebra el esfuerzo, no solo el resultado', 'Descansos activos cada 20 minutos', 'Ambiente organizado y predecible', 'Tiempo en naturaleza reduce síntomas'].map(s => (
+      {dos.map(s => (
         <div key={s} style={{ display: 'flex', gap: 8, marginBottom: 6 }}>
           <span style={{ color: '#8DB5A0', fontWeight: 900, fontSize: 14 }}>✅</span>
           <span style={{ fontSize: 12, fontWeight: 600, color: '#7A6A20', lineHeight: 1.4 }}>{s}</span>
         </div>
       ))}
       <div style={{ marginTop: 8 }}>
-        {['Repetir: "¿Cuántas veces te tengo que decir?"', 'Comparar con otros niños'].map(s => (
+        {donts.map(s => (
           <div key={s} style={{ display: 'flex', gap: 8, marginBottom: 6 }}>
             <span style={{ color: '#F4A58A', fontWeight: 900, fontSize: 14 }}>❌</span>
             <span style={{ fontSize: 12, fontWeight: 600, color: '#A07060', lineHeight: 1.4 }}>{s}</span>
@@ -221,29 +289,51 @@ function StrategiesBody() {
   )
 }
 
-function DailyTipBody() {
-  const { lang } = useApp()
+function DailyTipBody({ lang }) {
+  const tips = DAILY_TIPS[lang] || DAILY_TIPS.es
   return (
     <div>
       <div style={{ fontSize: 11, fontWeight: 700, color: '#aaa', marginBottom: 10 }}>
         {new Date().toLocaleDateString(lang === 'es' ? 'es-ES' : 'en-US', { weekday: 'long', day: 'numeric', month: 'long' })}
       </div>
       <div style={{ padding: '14px 12px', background: '#fff', borderRadius: 14, boxShadow: '0 2px 10px rgba(141,181,160,.2)', fontSize: 13, fontWeight: 700, color: '#3A7060', lineHeight: 1.7 }}>
-        "{DAILY_TIPS[todayTipIndex]}"
+        "{tips[todayTipIndex]}"
       </div>
-      <div style={{ fontSize: 12, fontWeight: 700, color: '#8DB5A0', marginTop: 10 }}>Un tip diferente cada día 🌱</div>
+      <div style={{ fontSize: 12, fontWeight: 700, color: '#8DB5A0', marginTop: 10 }}>
+        {lang === 'es' ? 'Un tip diferente cada día 🌱' : 'A different tip every day 🌱'}
+      </div>
     </div>
   )
 }
 
-const RESOURCES = [
-  { id: 'iceberg',    emoji: '🧊', title: 'El Iceberg del TDAH',    sub: 'Lo que ves vs. lo que hay debajo', Body: IcebergBody     },
-  { id: 'stop',       emoji: '🛑', title: 'La Técnica STOP',         sub: 'Para momentos de crisis',          Body: StopBody        },
-  { id: 'executive',  emoji: '🧠', title: 'Funciones Ejecutivas',    sub: 'El "jefe" del cerebro',            Body: ExecutiveFxBody },
-  { id: 'emotion',    emoji: '❤️', title: 'Regulación Emocional',   sub: 'Las emociones son más intensas',   Body: EmotionBody     },
-  { id: 'strategies', emoji: '⚡', title: 'Estrategias Diarias',    sub: 'Lo que sí y lo que no',            Body: StrategiesBody  },
-  { id: 'tip',        emoji: '💡', title: 'Tip del Día',             sub: '¡Uno nuevo cada día!',             Body: DailyTipBody    },
-]
+function getResources(lang) {
+  return [
+    { id: 'iceberg',    emoji: '🧊',
+      title: lang === 'es' ? 'El Iceberg del TDAH'   : 'The ADHD Iceberg',
+      sub:   lang === 'es' ? 'Lo que ves vs. lo que hay debajo' : 'What you see vs. what lies beneath',
+      Body: IcebergBody },
+    { id: 'stop',       emoji: '🛑',
+      title: lang === 'es' ? 'La Técnica STOP'        : 'The STOP Technique',
+      sub:   lang === 'es' ? 'Para momentos de crisis' : 'For crisis moments',
+      Body: StopBody },
+    { id: 'executive',  emoji: '🧠',
+      title: lang === 'es' ? 'Funciones Ejecutivas'   : 'Executive Functions',
+      sub:   lang === 'es' ? 'El "jefe" del cerebro'  : 'The brain's "manager"',
+      Body: ExecutiveFxBody },
+    { id: 'emotion',    emoji: '❤️',
+      title: lang === 'es' ? 'Regulación Emocional'  : 'Emotional Regulation',
+      sub:   lang === 'es' ? 'Las emociones son más intensas' : 'Emotions run more intense',
+      Body: EmotionBody },
+    { id: 'strategies', emoji: '⚡',
+      title: lang === 'es' ? 'Estrategias Diarias'   : 'Daily Strategies',
+      sub:   lang === 'es' ? 'Lo que sí y lo que no' : 'What works and what doesn't',
+      Body: StrategiesBody },
+    { id: 'tip',        emoji: '💡',
+      title: lang === 'es' ? 'Tip del Día'           : 'Tip of the Day',
+      sub:   lang === 'es' ? '¡Uno nuevo cada día!'  : 'A new one every day!',
+      Body: DailyTipBody },
+  ]
+}
 
 /* ══════════════════════════════════════════════════
    MAIN COMPONENT
@@ -752,7 +842,7 @@ export default function ParentDashboard() {
             <p style={{ fontSize: 13, fontWeight: 600, color: '#aaa', margin: '-6px 0 14px' }}>{tr.pdResourceSub}</p>
 
             <div style={{ display: 'flex', flexDirection: 'column', gap: 10, marginBottom: 24 }}>
-              {RESOURCES.map(res => {
+              {getResources(lang).map(res => {
                 const isOpen = openRes === res.id
                 const ResBody = res.Body
                 return (
@@ -770,7 +860,7 @@ export default function ParentDashboard() {
                     </button>
                     {isOpen && (
                       <div className="pd-acc-body">
-                        <ResBody />
+                        <ResBody lang={lang} />
                         <label className={`pd-applied-label${applied[res.id] ? ' checked' : ''}`}>
                           <input
                             type="checkbox"
