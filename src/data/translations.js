@@ -104,6 +104,20 @@ export const t = {
     simonLevel: 'Nivel',
     simonDone: lv => `¡Llegaste al nivel ${lv}! 🎉`,
     simonStart: '▶ Comenzar',
+    // odd one out
+    gameOdd: '¿Cuál no pertenece?',
+    gameOddDesc: 'Encuentra al que no encaja en el grupo',
+    oddTitle: '🔵 ¿Cuál no pertenece?',
+    oddStart: '▶ Empezar',
+    // balloon pop
+    gameBalloon: '¡Explota globos!',
+    gameBalloonDesc: 'Solo explota el color correcto',
+    balloonTitle: '🎈 ¡Explota globos!',
+    balloonStart: '▶ Empezar',
+    // maze
+    gameMaze: 'El Laberinto',
+    gameMazeDesc: 'Lleva al personaje hasta la salida',
+    mazeTitle: '🧩 El Laberinto',
     // breathe (4-7-8)
     breatheTitle: '🌬️ Respiración',
     breatheInhale: 'Inhala... 🫁',
@@ -331,6 +345,20 @@ export const t = {
     simonLevel: 'Level',
     simonDone: lv => `You reached level ${lv}! 🎉`,
     simonStart: '▶ Start',
+    // odd one out
+    gameOdd: "Which doesn't belong?",
+    gameOddDesc: 'Find the one that does not fit',
+    oddTitle: "🔵 Which Doesn't Belong?",
+    oddStart: '▶ Start',
+    // balloon pop
+    gameBalloon: 'Pop the Balloons!',
+    gameBalloonDesc: 'Only pop the right color',
+    balloonTitle: '🎈 Pop the Balloons!',
+    balloonStart: '▶ Start',
+    // maze
+    gameMaze: 'The Maze',
+    gameMazeDesc: 'Guide the character to the exit',
+    mazeTitle: '🧩 The Maze',
     breatheTitle: '🌬️ Breathing',
     breatheInhale: 'Inhale... 🫁',
     breatheHold: 'Hold... 💙',

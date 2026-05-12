@@ -26,6 +26,27 @@ export default function GamesView() {
       desc: tr.gameSimonDesc,
       grad: 'linear-gradient(135deg,#EC4899,#F97316)',
     },
+    {
+      key: 'odd',
+      emoji: '🔵',
+      name: tr.gameOdd,
+      desc: tr.gameOddDesc,
+      grad: 'linear-gradient(135deg,#3B82F6,#8B5CF6)',
+    },
+    {
+      key: 'balloon',
+      emoji: '🎈',
+      name: tr.gameBalloon,
+      desc: tr.gameBalloonDesc,
+      grad: 'linear-gradient(135deg,#EC4899,#F97316)',
+    },
+    {
+      key: 'maze',
+      emoji: '🧩',
+      name: tr.gameMaze,
+      desc: tr.gameMazeDesc,
+      grad: 'linear-gradient(135deg,#10B981,#3B82F6)',
+    },
   ]
 
   return (

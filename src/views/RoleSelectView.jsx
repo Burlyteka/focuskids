@@ -19,11 +19,19 @@ export default function RoleSelectView({ onSelect }) {
           color: 'rgba(255,255,255,.9)',
         }}
       >
-        {lang === 'es' ? '🇬🇧 EN' : '🇪🇸 ES'}
+        {lang === 'es' ? 'EN' : 'ES'}
       </button>
 
-      <div className="login-logo" style={{ marginBottom: 4 }}>
-        <h1 style={{ fontSize: 26, lineHeight: 1.3 }}>{tr.roleWho}</h1>
+      <div style={{ textAlign: 'center', marginBottom: 8 }}>
+        <div style={{ fontSize: 52, marginBottom: 4, filter: 'drop-shadow(0 0 18px rgba(124,58,237,.7))' }}>🚀</div>
+        <h1 style={{
+          fontSize: 32, fontWeight: 900, color: '#fff', margin: '0 0 6px',
+          textShadow: '0 0 30px rgba(124,58,237,.8)',
+          letterSpacing: -0.5,
+        }}>FocusKids</h1>
+        <p style={{ fontSize: 14, fontWeight: 700, color: 'rgba(255,255,255,.6)', margin: 0 }}>
+          {tr.roleWho}
+        </p>
       </div>
 
       <div className="role-cards">
@@ -40,23 +48,23 @@ export default function RoleSelectView({ onSelect }) {
         </button>
       </div>
 
-      {/* Demo button */}
       <button
         onClick={startDemo}
         style={{
-          marginTop: 8,
-          background: 'rgba(255,255,255,.12)',
-          border: '2px dashed rgba(255,255,255,.4)',
-          borderRadius: 16, padding: '14px 32px',
-          fontFamily: 'var(--font)', fontWeight: 800, fontSize: 15,
-          color: 'rgba(255,255,255,.85)', cursor: 'pointer',
+          marginTop: 16,
+          background: 'linear-gradient(135deg,rgba(124,58,237,.4),rgba(236,72,153,.4))',
+          border: '2px solid rgba(255,255,255,.35)',
+          borderRadius: 16, padding: '14px 36px',
+          fontFamily: 'var(--font)', fontWeight: 900, fontSize: 15,
+          color: '#fff', cursor: 'pointer',
           display: 'flex', alignItems: 'center', gap: 8,
+          boxShadow: '0 4px 20px rgba(124,58,237,.3)',
         }}
       >
-        🎮 {lang === 'es' ? 'Probar Demo' : 'Try Demo'}
+        🎮 {lang === 'es' ? 'Probar Demo gratis' : 'Try Demo for free'}
       </button>
-      <p style={{ fontSize: 11, fontWeight: 700, color: 'rgba(255,255,255,.4)', marginTop: 6 }}>
-        {lang === 'es' ? 'Sin código — solo explorar' : 'No code needed — just explore'}
+      <p style={{ fontSize: 11, fontWeight: 700, color: 'rgba(255,255,255,.45)', marginTop: 6 }}>
+        {lang === 'es' ? 'Sin código — explora todo' : 'No code needed — explore everything'}
       </p>
     </div>
   )

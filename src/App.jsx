@@ -11,6 +11,9 @@ import GamesView         from './views/GamesView.jsx'
 import MemoryGameView    from './views/MemoryGameView.jsx'
 import TapGameView       from './views/TapGameView.jsx'
 import ColorSequenceView from './views/ColorSequenceView.jsx'
+import OddOneOutView     from './views/OddOneOutView.jsx'
+import BalloonPopView    from './views/BalloonPopView.jsx'
+import MazeView          from './views/MazeView.jsx'
 import BreatheView       from './views/BreatheView.jsx'
 import MoodView          from './views/MoodView.jsx'
 import MoveView          from './views/MoveView.jsx'
@@ -45,7 +48,6 @@ function Inner() {
     activeBg,
   } = useApp()
 
-  // Pre-login flow state
   const [loginStage, setLoginStage] = useState(() =>
     localStorage.getItem(INTRO_KEY) ? 'roleSelect' : 'splash'
   )
@@ -92,9 +94,12 @@ function Inner() {
 
   const renderView = () => {
     if (view === 'games') {
-      if (subview === 'memory') return <MemoryGameView />
-      if (subview === 'tap')    return <TapGameView />
-      if (subview === 'simon')  return <ColorSequenceView />
+      if (subview === 'memory')  return <MemoryGameView />
+      if (subview === 'tap')     return <TapGameView />
+      if (subview === 'simon')   return <ColorSequenceView />
+      if (subview === 'odd')     return <OddOneOutView />
+      if (subview === 'balloon') return <BalloonPopView />
+      if (subview === 'maze')    return <MazeView />
       return <GamesView />
     }
     switch (view) {
@@ -113,28 +118,28 @@ function Inner() {
 
   const showBack = view !== 'home'
 
-  const theme       = BG_MAP[activeBg] || BG_MAP.space
-  const isSpace     = activeBg === 'space'
-  const themeStyle  = isSpace ? {} : {
-    background:   theme.gradient,
-    '--bg':       theme.dark ? 'rgba(10,8,30,.25)'      : 'rgba(255,255,255,.18)',
-    '--card':     theme.dark ? 'rgba(255,255,255,.13)'  : 'rgba(255,255,255,.88)',
-    '--text':     theme.dark ? '#EEF2FF'                : '#1E1B4B',
-    '--soft':      theme.dark ? 'rgba(238,242,255,.65)'  : '#374151',
-    '--text-soft': theme.dark ? 'rgba(238,242,255,.65)'  : '#374151',
-    '--purple':   theme.dark ? '#A78BFA'                : '#7C3AED',
-    '--panel':    theme.dark ? 'rgba(255,255,255,.12)'  : 'rgba(0,0,0,.08)',
-    '--bar-bg':   theme.dark ? 'rgba(255,255,255,.15)'  : '#E5E7EB',
-    '--item-done-bg':    theme.dark ? 'rgba(134,239,172,.15)' : '#F0FDF4',
-    '--item-done-text':  theme.dark ? '#86EFAC'               : '#166534',
-    '--input-bg': theme.dark ? 'rgba(255,255,255,.1)'   : '#fff',
-    '--border-c': theme.dark ? 'rgba(255,255,255,.2)'   : '#C7D2FE',
+  const theme      = BG_MAP[activeBg] || BG_MAP.space
+  const isSpace    = activeBg === 'space'
+  const themeStyle = isSpace ? {} : {
+    background:         theme.gradient,
+    '--bg':             theme.dark ? 'rgba(10,8,30,.25)'      : 'rgba(255,255,255,.18)',
+    '--card':           theme.dark ? 'rgba(255,255,255,.13)'  : 'rgba(255,255,255,.88)',
+    '--text':           theme.dark ? '#EEF2FF'                : '#1E1B4B',
+    '--soft':           theme.dark ? 'rgba(238,242,255,.65)'  : '#374151',
+    '--text-soft':      theme.dark ? 'rgba(238,242,255,.65)'  : '#374151',
+    '--purple':         theme.dark ? '#A78BFA'                : '#7C3AED',
+    '--panel':          theme.dark ? 'rgba(255,255,255,.12)'  : 'rgba(0,0,0,.08)',
+    '--bar-bg':         theme.dark ? 'rgba(255,255,255,.15)'  : '#E5E7EB',
+    '--item-done-bg':   theme.dark ? 'rgba(134,239,172,.15)'  : '#F0FDF4',
+    '--item-done-text': theme.dark ? '#86EFAC'                : '#166534',
+    '--input-bg':       theme.dark ? 'rgba(255,255,255,.1)'   : '#fff',
+    '--border-c':       theme.dark ? 'rgba(255,255,255,.2)'   : '#C7D2FE',
   }
 
   return (
     <div style={{ display: 'flex', flexDirection: 'column', height: '100%', overflow: 'hidden', position: 'relative', ...themeStyle }}>
       <BgDecorations themeId={activeBg} />
-      {/* Top bar */}
+
       <div className="topbar">
         <div style={{ display: 'flex', alignItems: 'center', gap: 8 }}>
           {showBack && (
@@ -154,7 +159,7 @@ function Inner() {
         </div>
         <div style={{ display: 'flex', gap: 8, alignItems: 'center' }}>
           <button className="lang-btn" onClick={toggleLang}>
-            {lang === 'es' ? '🇬🇧 EN' : '🇪🇸 ES'}
+            {lang === 'es' ? '\U0001f1ec\U0001f1e7 EN' : '\U0001f1ea\U0001f1f8 ES'}
           </button>
           <button
             onClick={logout}
@@ -170,7 +175,6 @@ function Inner() {
         </div>
       </div>
 
-      {/* Demo banner */}
       {user?.isDemo && (
         <div style={{
           background: 'linear-gradient(90deg,#7C3AED,#EC4899)',
@@ -178,7 +182,7 @@ function Inner() {
           padding: '7px 12px', fontSize: 13, fontWeight: 800,
           letterSpacing: .3, flexShrink: 0,
         }}>
-          🎮 {lang === 'es'
+          \U0001f3ae {lang === 'es'
             ? 'Modo Demo — Consigue tu código en '
             : 'Demo Mode — Get your code at '}
           <a
@@ -190,7 +194,6 @@ function Inner() {
         </div>
       )}
 
-      {/* Main content */}
       <div style={{ flex: 1, overflow: 'hidden', display: 'flex', flexDirection: 'column' }}>
         {renderView()}
       </div>
@@ -220,7 +223,7 @@ function Inner() {
               style={{ background: 'rgba(255,255,255,.25)', color: '#fff', fontSize: 16 }}
               onClick={() => setCelebration(null)}
             >
-              🎉
+              \U0001f389
             </button>
           </div>
         </div>
