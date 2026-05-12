@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>FocusKids — Account Setup</title>
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@700;800;900&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: 'Nunito', sans-serif;
+      min-height: 100vh;
+      background: radial-gradient(ellipse at 30% 20%, #1a237e 0%, #0d0d2b 55%, #050510 100%);
+      display: flex; align-items: flex-start; justify-content: center;
+      padding: 32px 16px 48px;
+    }
+
+    .card {
+      background: rgba(255,255,255,.07);
+      border: 1.5px solid rgba(255,255,255,.15);
+      border-radius: 28px;
+      padding: 40px 36px;
+      max-width: 520px; width: 100%;
+      backdrop-filter: blur(12px);
+    }
+
+    .logo { font-size: 44px; text-align: center; margin-bottom: 8px; }
+    h1 {
+      text-align: center; color: #fff;
+      font-size: 24px; font-weight: 900;
+      margin-bottom: 6px;
+    }
+    .sub {
+      text-align: center; color: rgba(255,255,255,.6);
+      font-size: 13px; font-weight: 700; margin-bottom: 28px;
+    }
+
+    /* Info box */
+    .info-box {
+      background: rgba(124,58,237,.2);
+      border: 1.5px solid rgba(124,58,237,.5);
+      border-radius: 14px;
+      padding: 14px 18px;
+      color: rgba(255,255,255,.85);
+      font-size: 13px; font-weight: 700;
+      line-height: 1.6;
+      margin-bottom: 26px;
+    }
+    .info-box span { color: #A78BFA; }
+
+    label {
+      display: block;
+      color: rgba(255,255,255,.8);
+      font-size: 12px; font-weight: 800;
+      letter-spacing: .5px;
+      text-transform: uppercase;
+      margin-bottom: 6px; margin-top: 18px;
+    }
+
+    input[type="text"], input[type="email"], select {
+      width: 100%;
+      background: rgba(255,255,255,.1);
+      border: 2px solid rgba(255,255,255,.2);
+      border-radius: 12px;
+      padding: 13px 16px;
+      color: #fff;
+      font-family: 'Nunito', sans-serif;
+      font-size: 15px; font-weight: 700;
+      outline: none;
+      transition: border-color .2s;
+    }
+    input::placeholder { color: rgba(255,255,255,.35); }
+    input:focus, select:focus { border-color: #7C3AED; }
+    select { cursor: pointer; }
+    select option { background: #1a237e; color: #fff; }
+
+    /* Setup option */
+    .option-box {
+      margin-top: 22px;
+      border: 2px dashed rgba(236,72,153,.5);
+      border-radius: 16px;
+      padding: 18px;
+      background: rgba(236,72,153,.07);
+    }
+    .option-box h3 {
+      color: #F9A8D4;
+      font-size: 14px; font-weight: 900;
+      margin-bottom: 8px;
+    }
+    .option-box p {
+      color: rgba(255,255,255,.6);
+      font-size: 12px; font-weight: 700;
+      line-height: 1.6; margin-bottom: 14px;
+    }
+
+    .toggle-row {
+      display: flex; align-items: center; gap: 12px;
+    }
+    .toggle {
+      position: relative; width: 48px; height: 26px; flex-shrink: 0;
+    }
+    .toggle input { opacity: 0; width: 0; height: 0; }
+    .slider {
+      position: absolute; inset: 0;
+      background: rgba(255,255,255,.2);
+      border-radius: 999px; cursor: pointer;
+      transition: background .2s;
+    }
+    .slider::before {
+      content: '';
+      position: absolute; width: 20px; height: 20px;
+      left: 3px; top: 3px;
+      background: #fff; border-radius: 50%;
+      transition: transform .2s;
+    }
+    .toggle input:checked + .slider { background: #EC4899; }
+    .toggle input:checked + .slider::before { transform: translateX(22px); }
+    .toggle-label { color: rgba(255,255,255,.8); font-size: 13px; font-weight: 800; }
+
+    /* Hidden fields */
+    #name-field { display: none; margin-top: 14px; }
+
+    button[type="submit"] {
+      margin-top: 28px; width: 100%;
+      background: linear-gradient(135deg, #7C3AED, #EC4899);
+      border: none; border-radius: 16px;
+      padding: 16px;
+      color: #fff; font-family: 'Nunito', sans-serif;
+      font-size: 17px; font-weight: 900;
+      cursor: pointer;
+      transition: opacity .2s, transform .15s;
+    }
+    button[type="submit"]:hover { opacity: .9; transform: scale(1.01); }
+    button[type="submit"]:active { transform: scale(.97); }
+
+    .footer-note {
+      text-align: center;
+      color: rgba(255,255,255,.35);
+      font-size: 11px; font-weight: 700;
+      margin-top: 20px; line-height: 1.6;
+    }
+
+    /* Success screen */
+    #success {
+      display: none; text-align: center;
+    }
+    #success .check { font-size: 64px; margin-bottom: 16px; }
+    #success h2 { color: #fff; font-size: 22px; margin-bottom: 10px; }
+    #success p { color: rgba(255,255,255,.65); font-size: 13px; font-weight: 700; line-height: 1.7; }
+  </style>
+</head>
+<body>
+<div class="card">
+
+  <!-- Form -->
+  <div id="form-section">
+    <div class="logo">🚀</div>
+    <h1>FocusKids Setup</h1>
+    <p class="sub">Complete your purchase in 1 minute</p>
+
+    <div class="info-box">
+      📋 <span>Important:</span> When your child first enters their code, they will choose a username.
+      That name <span>cannot be changed later</span> — so make sure it's the name they want to use in the app.
+      <br><br>
+      If you prefer, we can set up the account for you. Just toggle the option below.
+    </div>
+
+    <form name="focuskids-setup" method="POST" data-netlify="true" netlify-honeypot="bot-field" id="setup-form">
+      <input type="hidden" name="form-name" value="focuskids-setup" />
+      <input type="hidden" name="bot-field" />
+
+      <label for="email">Your Email Address *</label>
+      <input type="email" id="email" name="email" placeholder="you@example.com" required />
+
+      <label for="order">Etsy Order Number *</label>
+      <input type="text" id="order" name="order" placeholder="e.g. 1234567890" required />
+
+      <label for="lang">Preferred Language</label>
+      <select id="lang" name="language">
+        <option value="English">🇬🇧 English</option>
+        <option value="Spanish">🇪🇸 Español</option>
+      </select>
+
+      <!-- Optional: we set up the account -->
+      <div class="option-box">
+        <h3>✨ Want us to set up the account for you?</h3>
+        <p>Toggle this on and we'll create your child's profile before sending the codes —
+           so everything is ready to go the moment they log in.</p>
+
+        <div class="toggle-row">
+          <label class="toggle">
+            <input type="checkbox" id="setup-toggle" name="setup_requested" value="yes" onchange="toggleName(this)" />
+            <span class="slider"></span>
+          </label>
+          <span class="toggle-label">Yes, please set it up for me</span>
+        </div>
+
+        <div id="name-field">
+          <label for="childname">Child's Name or Nickname</label>
+          <input type="text" id="childname" name="child_name" placeholder="e.g. Sofia, Max, Dino..." maxlength="20" />
+        </div>
+      </div>
+
+      <button type="submit">🚀 Submit &amp; Continue</button>
+    </form>
+
+    <p class="footer-note">
+      Your information is only used to deliver your FocusKids access codes.<br>
+      We will never share your data with third parties.<br>
+      Questions? Contact us on Etsy — burlystudio.etsy.com
+    </p>
+  </div>
+
+  <!-- Success -->
+  <div id="success">
+    <div class="check">🎉</div>
+    <h2>All set! We received your info.</h2>
+    <p>
+      Our team will send your access codes to your email within 5 hours.<br><br>
+      If you requested account setup, everything will be ready before your codes arrive.<br><br>
+      Thank you for choosing FocusKids — we can't wait for your child to get started! 🚀
+    </p>
+  </div>
+
+</div>
+
+<script>
+  function toggleName(cb) {
+    document.getElementById('name-field').style.display = cb.checked ? 'block' : 'none';
+  }
+
+  // Netlify form submission via fetch (stay on page, show success)
+  const form = document.getElementById('setup-form');
+  form.addEventListener('submit', async function(e) {
+    e.preventDefault();
+    const data = new FormData(form);
+    try {
+      await fetch('/', { method: 'POST', body: data });
+      document.getElementById('form-section').style.display = 'none';
+      document.getElementById('success').style.display = 'block';
+    } catch(err) {
+      alert('Something went wrong. Please try again or contact us on Etsy.');
+    }
+  });
+</script>
+</body>
+</html>
