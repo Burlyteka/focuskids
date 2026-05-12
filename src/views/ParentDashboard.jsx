@@ -200,7 +200,7 @@ function IcebergBody({ lang }) {
 function StopBody({ lang }) {
   const steps = lang === 'es'
     ? [['S','STOP','Para lo que estás haciendo'],['T','TAKE A BREATH','Respira profundo 3 veces'],['O','OBSERVE','¿Qué está pasando realmente?'],['P','PROCEED','Responde con calma, no reacciones']]
-    : [['S','STOP','Stop what you are doing'],['T','TAKE A BREATH','Breathe deeply 3 times'],['O','OBSERVE','What is really happening?'],['P','PROCEED','Respond calmly, don't react']]
+    : [['S','STOP','Stop what you are doing'],['T','TAKE A BREATH','Breathe deeply 3 times'],['O','OBSERVE','What is really happening?'],['P','PROCEED','Respond calmly, do not react']]
   return (
     <div>
       {steps.map(([letter, word, desc]) => (
@@ -246,7 +246,7 @@ function EmotionBody({ lang }) {
   const intro = lang === 'es' ? 'Cuando tu hijo/a se desborda:' : 'When your child overflows:'
   const steps = lang === 'es'
     ? [['1','No razones durante la crisis — espera a que pase'],['2','Valida: "Veo que estás muy enojado/a, eso está bien"'],['3','Ofrece el ejercicio de respiración de la app'],['4','Después (en calma): habla sobre lo que pasó']]
-    : [['1','Don't reason during the meltdown — wait for it to pass'],['2','Validate: "I see you're very angry, that's okay"'],['3','Offer the breathing exercise in the app'],['4','Afterwards (calmly): talk about what happened']]
+    : [["1","Do not reason during the meltdown — wait for it to pass"],["2","Validate: I see you are very angry, that is okay"],["3","Offer the breathing exercise in the app"],["4","Afterwards (calmly): talk about what happened"]]
   const footer = lang === 'es' ? 'Tu calma regula la de ellos 🌿' : 'Your calm regulates theirs 🌿'
   return (
     <div>
@@ -318,7 +318,7 @@ function getResources(lang) {
       Body: StopBody },
     { id: 'executive',  emoji: '🧠',
       title: lang === 'es' ? 'Funciones Ejecutivas'   : 'Executive Functions',
-      sub:   lang === 'es' ? 'El "jefe" del cerebro'  : 'The brain's "manager"',
+      sub:   lang === 'es' ? 'El "jefe" del cerebro'  : "The brain's manager",
       Body: ExecutiveFxBody },
     { id: 'emotion',    emoji: '❤️',
       title: lang === 'es' ? 'Regulación Emocional'  : 'Emotional Regulation',
@@ -326,7 +326,7 @@ function getResources(lang) {
       Body: EmotionBody },
     { id: 'strategies', emoji: '⚡',
       title: lang === 'es' ? 'Estrategias Diarias'   : 'Daily Strategies',
-      sub:   lang === 'es' ? 'Lo que sí y lo que no' : 'What works and what doesn't',
+      sub:   lang === 'es' ? 'Lo que sí y lo que no' : "What works and what doesn't",
       Body: StrategiesBody },
     { id: 'tip',        emoji: '💡',
       title: lang === 'es' ? 'Tip del Día'           : 'Tip of the Day',
